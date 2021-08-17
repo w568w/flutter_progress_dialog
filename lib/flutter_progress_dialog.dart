@@ -7,4 +7,5 @@ export 'src/progress_dialog.dart'
         showProgressDialog,
         showProgressDialogWidget,
         dismissProgressDialog,
-        ProgressDialog;
+        ProgressDialog,
+        ProgressFuture;

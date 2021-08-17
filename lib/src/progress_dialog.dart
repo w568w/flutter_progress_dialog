@@ -1,19 +1,20 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:flutter/material.dart';
 
 import 'core/manager.dart';
 
 part 'widget/container.dart';
+
 part 'widget/progress.dart';
+
 part 'widget/theme.dart';
+
 part 'core/future.dart';
 
 enum ProgressOrientation { horizontal, vertical }
@@ -38,11 +39,10 @@ ProgressFuture showProgressDialog({
   context ??= _contextMap.values.first;
   _ProgressTheme theme = _ProgressTheme.of(context);
   theme ??= _ProgressTheme.origin();
-  textStyle ??= TextStyle(
-      fontSize: 16.0,
-      color: Theme.of(context).brightness == Brightness.light
-          ? Colors.black87
-          : Colors.white);
+  textStyle ??= Theme.of(context)
+      .textTheme
+      .bodyText1
+      .copyWith(fontSize: 16.0, color: Colors.white);
   backgroundColor ??= theme.backgroundColor;
   radius ??= theme.radius;
   textDirection ??= theme.textDirection ?? TextDirection.ltr;
