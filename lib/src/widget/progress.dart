@@ -2,22 +2,22 @@ part of '../progress_dialog.dart';
 
 class ProgressDialog extends StatefulWidget {
   final Widget child;
-  final Widget loading;
-  final String loadingText;
-  final TextStyle textStyle;
+  final Widget? loading;
+  final String? loadingText;
+  final TextStyle? textStyle;
   final Color backgroundColor;
   final double radius;
-  final TextDirection textDirection;
-  final ProgressOrientation orientation;
+  final TextDirection? textDirection;
+  final ProgressOrientation? orientation;
 
   const ProgressDialog({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.loading,
     this.loadingText,
     this.textStyle,
     this.radius = 10.0,
-    Color backgroundColor,
+    Color? backgroundColor,
     this.textDirection,
     this.orientation,
   })  : this.backgroundColor = backgroundColor ?? const Color(0xDD000000),
@@ -69,7 +69,7 @@ class _ProgressDialogState extends State<ProgressDialog> {
     final TextTheme defaultTextTheme = typography.white;
 
     TextStyle textStyle = widget.textStyle ??
-        defaultTextTheme.bodyText1.copyWith(
+        defaultTextTheme.bodyText1!.copyWith(
           fontSize: 16.0,
           fontWeight: FontWeight.normal,
           color: Colors.white,
@@ -89,13 +89,13 @@ class _ProgressDialogState extends State<ProgressDialog> {
 
 class ProgressVisibleObserver extends NavigatorObserver {
   @override
-  void didPop(Route route, Route previousRoute) {
+  void didPop(Route route, Route? previousRoute) {
     super.didPop(route, previousRoute);
     dismissProgressDialog();
   }
 
   @override
-  void didPush(Route route, Route previousRoute) {
+  void didPush(Route route, Route? previousRoute) {
     super.didPush(route, previousRoute);
     dismissProgressDialog();
   }

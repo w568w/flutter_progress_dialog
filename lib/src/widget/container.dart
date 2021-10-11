@@ -1,10 +1,10 @@
 part of '../progress_dialog.dart';
 
 class _ProgressContainer extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
 
   const _ProgressContainer({
-    Key key,
+    Key? key,
     this.child,
   }) : super(key: key);
 
@@ -27,7 +27,7 @@ class _ProgressContainerState extends State<_ProgressContainer>
         opacity = 1.0;
       });
     });
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
   }
 
   @override
@@ -40,7 +40,7 @@ class _ProgressContainerState extends State<_ProgressContainer>
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 

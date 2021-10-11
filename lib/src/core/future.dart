@@ -3,7 +3,7 @@ part of '../progress_dialog.dart';
 /// use the [dismiss] to dismiss ProgressDialog.
 class ProgressFuture {
   final OverlayEntry _entry;
-  final VoidCallback _onDismiss;
+  final VoidCallback? _onDismiss;
   bool _isShow = true;
   final GlobalKey<_ProgressContainerState> _containerKey;
 
@@ -22,7 +22,7 @@ class ProgressFuture {
     ProgressManager().removeFuture(this);
 
     if (showAnim) {
-      _containerKey.currentState.showDismissAnim();
+      _containerKey.currentState!.showDismissAnim();
       Future.delayed(_opacityDuration, () {
         _entry.remove();
       });

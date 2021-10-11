@@ -3,11 +3,11 @@ import '../progress_dialog.dart';
 class ProgressManager {
   ProgressManager._();
 
-  static ProgressManager _instance;
+  static ProgressManager? _instance;
 
   factory ProgressManager() {
     _instance ??= ProgressManager._();
-    return _instance;
+    return _instance!;
   }
 
   Set<ProgressFuture> futureSet = Set();
