@@ -45,7 +45,7 @@ ProgressFuture showProgressDialog({
       .copyWith(fontSize: 16.0, color: Colors.white);
   backgroundColor ??= theme.backgroundColor;
   radius ??= theme.radius;
-  textDirection ??= theme.textDirection ?? TextDirection.ltr;
+  textDirection ??= theme.textDirection;
   orientation ??= theme.orientation;
   loading ??= theme.loading;
   loadingText ??= theme.loadingText ?? _defaultLoadingText;
@@ -152,9 +152,7 @@ ProgressFuture showProgressDialogWidget(
   OverlayEntry entry;
   ProgressFuture future;
 
-  var direction = textDirection ??
-      _ProgressTheme.of(context)!.textDirection ??
-      TextDirection.ltr;
+  var direction = textDirection ?? _ProgressTheme.of(context)!.textDirection;
 
   GlobalKey<_ProgressContainerState> key = GlobalKey();
 

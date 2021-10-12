@@ -65,16 +65,6 @@ class _ProgressDialogState extends State<ProgressDialog> {
       textDirection: direction,
     );
 
-    var typography = Typography(platform: defaultTargetPlatform);
-    final TextTheme defaultTextTheme = typography.white;
-
-    TextStyle textStyle = widget.textStyle ??
-        defaultTextTheme.bodyText1!.copyWith(
-          fontSize: 16.0,
-          fontWeight: FontWeight.normal,
-          color: Colors.white,
-        );
-
     return _ProgressTheme(
       child: w,
       backgroundColor: widget.backgroundColor,
