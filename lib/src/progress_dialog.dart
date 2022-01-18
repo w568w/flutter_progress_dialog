@@ -69,7 +69,7 @@ ProgressFuture showProgressDialog({
                         child: CircularProgressIndicator(strokeWidth: 3.0),
                       ),
                       Text(loadingText!,
-                          style: textStyle.copyWith(color: Colors.white), textAlign: TextAlign.center),
+                          style: textStyle!.copyWith(color: Colors.white), textAlign: TextAlign.center),
                     ],
                   )
                 : Row(
@@ -84,7 +84,7 @@ ProgressFuture showProgressDialog({
                         child: CircularProgressIndicator(strokeWidth: 3.0),
                       ),
                       Text(loadingText!,
-                          style: textStyle.copyWith(color: Colors.white), textAlign: TextAlign.center),
+                          style: textStyle!.copyWith(color: Colors.white), textAlign: TextAlign.center),
                     ],
                   ),
           ),
