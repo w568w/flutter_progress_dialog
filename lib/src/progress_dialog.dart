@@ -37,7 +37,7 @@ ProgressFuture showProgressDialog({
   context ??= _contextMap.values.first;
   _ProgressTheme? theme = _ProgressTheme.of(context);
   theme ??= _ProgressTheme.origin;
-  textStyle ??= Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16.0);
+  textStyle ??= Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16.0);
   backgroundColor ??= theme.backgroundColor;
   radius ??= theme.radius;
   textDirection ??= theme.textDirection;
