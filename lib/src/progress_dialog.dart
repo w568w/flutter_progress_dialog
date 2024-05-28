@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -173,7 +171,7 @@ ProgressFuture showProgressDialogWidget(
 
   future = ProgressFuture._(entry, onDismiss, key);
 
-  Overlay.of(context)!.insert(entry);
+  Overlay.of(context).insert(entry);
   ProgressManager().addFuture(future);
   return future;
 }

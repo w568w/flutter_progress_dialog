@@ -27,7 +27,7 @@ class _ProgressContainerState extends State<_ProgressContainer>
         opacity = 1.0;
       });
     });
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -40,7 +40,7 @@ class _ProgressContainerState extends State<_ProgressContainer>
 
   @override
   void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -52,7 +52,7 @@ class _ProgressContainerState extends State<_ProgressContainer>
       opacity: opacity,
     );
 
-    var mediaQueryData = MediaQueryData.fromWindow(ui.window);
+    var mediaQueryData = MediaQueryData.fromView(View.of(context));
     Widget container = w;
 
     var edgeInsets = EdgeInsets.only(bottom: mediaQueryData.viewInsets.bottom);
