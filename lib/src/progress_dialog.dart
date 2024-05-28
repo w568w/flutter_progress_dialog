@@ -26,26 +26,23 @@ const _defaultLoadingText = "请稍候";
 
 /// show progress dialog with [msg],
 ProgressFuture showProgressDialog({
-  BuildContext context,
-  Widget loading,
-  String loadingText,
-  TextStyle textStyle,
-  Color backgroundColor,
-  double radius,
-  VoidCallback onDismiss,
-  TextDirection textDirection,
-  ProgressOrientation orientation,
+  BuildContext? context,
+  Widget? loading,
+  String? loadingText,
+  TextStyle? textStyle,
+  Color? backgroundColor,
+  double? radius,
+  VoidCallback? onDismiss,
+  TextDirection? textDirection,
+  ProgressOrientation? orientation,
 }) {
   context ??= _contextMap.values.first;
-  _ProgressTheme theme = _ProgressTheme.of(context);
-  theme ??= _ProgressTheme.origin();
-  textStyle ??= Theme.of(context)
-      .textTheme
-      .bodyText1
-      .copyWith(fontSize: 16.0, color: Colors.white);
+  _ProgressTheme? theme = _ProgressTheme.of(context);
+  theme ??= _ProgressTheme.origin;
+  textStyle ??= Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16.0);
   backgroundColor ??= theme.backgroundColor;
   radius ??= theme.radius;
-  textDirection ??= theme.textDirection ?? TextDirection.ltr;
+  textDirection ??= theme.textDirection;
   orientation ??= theme.orientation;
   loading ??= theme.loading;
   loadingText ??= theme.loadingText ?? _defaultLoadingText;
@@ -58,7 +55,7 @@ ProgressFuture showProgressDialog({
           padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
           decoration: BoxDecoration(
               color: backgroundColor,
-              borderRadius: BorderRadius.circular(radius)),
+              borderRadius: BorderRadius.circular(radius!)),
           child: ClipRect(
             child: orientation == ProgressOrientation.vertical
                 ? Column(
@@ -71,8 +68,8 @@ ProgressFuture showProgressDialog({
                         padding: EdgeInsets.all(4.0),
                         child: CircularProgressIndicator(strokeWidth: 3.0),
                       ),
-                      Text(loadingText,
-                          style: textStyle, textAlign: TextAlign.center),
+                      Text(loadingText!,
+                          style: textStyle!.copyWith(color: Colors.white), textAlign: TextAlign.center),
                     ],
                   )
                 : Row(
@@ -86,8 +83,8 @@ ProgressFuture showProgressDialog({
                         padding: EdgeInsets.all(4.0),
                         child: CircularProgressIndicator(strokeWidth: 3.0),
                       ),
-                      Text(loadingText,
-                          style: textStyle, textAlign: TextAlign.center),
+                      Text(loadingText!,
+                          style: textStyle!.copyWith(color: Colors.white), textAlign: TextAlign.center),
                     ],
                   ),
           ),
@@ -109,7 +106,7 @@ ProgressFuture showProgressDialog({
                           padding: EdgeInsets.all(4.0),
                           child: CupertinoActivityIndicator(),
                         ),
-                        Text(loadingText,
+                        Text(loadingText!,
                             style: textStyle, textAlign: TextAlign.center),
                       ],
                     )
@@ -123,7 +120,7 @@ ProgressFuture showProgressDialog({
                           padding: EdgeInsets.all(4.0),
                           child: CupertinoActivityIndicator(),
                         ),
-                        Text(loadingText,
+                        Text(loadingText!,
                             style: textStyle, textAlign: TextAlign.center),
                       ],
                     ),
@@ -143,18 +140,16 @@ ProgressFuture showProgressDialog({
 /// show [widget] with progress dialog
 ProgressFuture showProgressDialogWidget(
   Widget widget, {
-  BuildContext context,
-  VoidCallback onDismiss,
-  TextDirection textDirection,
-  bool handleTouch,
+  BuildContext? context,
+  VoidCallback? onDismiss,
+  TextDirection? textDirection,
+  bool? handleTouch,
 }) {
   context ??= _contextMap.values.first;
   OverlayEntry entry;
   ProgressFuture future;
 
-  var direction = textDirection ??
-      _ProgressTheme.of(context).textDirection ??
-      TextDirection.ltr;
+  var direction = textDirection ?? _ProgressTheme.of(context)!.textDirection;
 
   GlobalKey<_ProgressContainerState> key = GlobalKey();
 
@@ -178,7 +173,7 @@ ProgressFuture showProgressDialogWidget(
 
   future = ProgressFuture._(entry, onDismiss, key);
 
-  Overlay.of(context).insert(entry);
+  Overlay.of(context)!.insert(entry);
   ProgressManager().addFuture(future);
   return future;
 }

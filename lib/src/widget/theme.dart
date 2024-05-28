@@ -1,12 +1,12 @@
 part of '../progress_dialog.dart';
 
 class _ProgressTheme extends InheritedWidget {
-  final Color backgroundColor;
-  final double radius;
+  final Color? backgroundColor;
+  final double? radius;
   final TextDirection textDirection;
-  final ProgressOrientation orientation;
-  final String loadingText;
-  final Widget loading;
+  final ProgressOrientation? orientation;
+  final String? loadingText;
+  final Widget? loading;
 
   const _ProgressTheme({
     this.backgroundColor,
@@ -14,20 +14,22 @@ class _ProgressTheme extends InheritedWidget {
     this.orientation,
     this.loading,
     this.loadingText,
-    TextDirection textDirection,
-    Widget child,
+    TextDirection? textDirection,
+    required Widget child,
   })  : textDirection = textDirection ?? TextDirection.ltr,
         super(child: child);
 
-  _ProgressTheme.origin()
-      : this.backgroundColor = const Color(0xDD000000),
-        this.radius = 10.0,
-        this.orientation = ProgressOrientation.horizontal,
-        this.textDirection = TextDirection.ltr,
-        this.loading = null,
-        this.loadingText = "请稍候";
+  static const origin = _ProgressTheme(
+    child: const SizedBox(),
+    backgroundColor: const Color(0xDD000000),
+    radius: 10.0,
+    orientation: ProgressOrientation.horizontal,
+    textDirection: TextDirection.ltr,
+    loading: null,
+    loadingText: "Loading...",
+  );
 
-  static _ProgressTheme of(BuildContext context) =>
+  static _ProgressTheme? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<_ProgressTheme>();
 
   @override
