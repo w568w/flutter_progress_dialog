@@ -1,7 +1,6 @@
 name: flutter_progress_dialog
 description: A flutter library for the progress dialog. Easily show and hide. Support specify custom loading widget.
-version: 0.1.1
-author: Dylan Wu <dylanwuzh@gmail.com>
+version: 0.2.0
 homepage: https://github.com/wuzhendev/flutter_progress_dialog
 
 environment:
@@ -10,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_platform_widgets: ^8.0.0
+  flutter_platform_widgets: ^9.0.0
 
 dev_dependencies:
   flutter_test:
