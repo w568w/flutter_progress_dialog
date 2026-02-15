@@ -58,7 +58,7 @@ class _ProgressDialogState extends State<ProgressDialog> {
           top: 0.0,
           bottom: 0.0,
           child: IgnorePointer(
-            child: Container(color: Colors.black.withOpacity(0.0)),
+            child: Container(color: Colors.black.withValues(alpha: 0.0)),
           ),
         )
       ]),
